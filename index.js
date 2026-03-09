@@ -12,14 +12,13 @@ const fetch = require("node-fetch");
   });
   const page = await browser.newPage();
 
-  // ▼ ログインページへ
-  await page.goto("https://chouseisan.com/login");
+  // ▼ 正しいログインURLに変更
+  await page.goto("https://chouseisan.com/users/sign_in");
 
-  // ▼ 最新のセレクタに変更
+  // ▼ セレクタはこのページに対応
   await page.type('#user_email', email);
   await page.type('#user_password', password);
 
-  // ▼ ログインボタン
   await page.click('input[type="submit"]');
   await page.waitForNavigation();
 
