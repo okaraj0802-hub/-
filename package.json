@@ -1,6 +1,8 @@
 {
   "name": "chouseisan-auto",
   "version": "1.0.0",
-"node-fetch": "^2.6.7"
-
+  "dependencies": {
+    "puppeteer": "^24.15.0",
+    "node-fetch": "^2.6.7"
+  }
 }
