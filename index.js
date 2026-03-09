@@ -7,22 +7,20 @@ const fetch = require("node-fetch");
   const webhook = process.env.DISCORD_WEBHOOK;
 
   const browser = await puppeteer.launch({
-    headless: "new",
-    args: ["--no-sandbox"]
+    headless: "new"
   });
   const page = await browser.newPage();
 
-  // ▼ 正しいログインURLに変更
+  // ログインページ
   await page.goto("https://chouseisan.com/users/sign_in");
 
-  // ▼ セレクタはこのページに対応
   await page.type('#user_email', email);
   await page.type('#user_password', password);
 
   await page.click('input[type="submit"]');
   await page.waitForNavigation();
 
-  // ▼ 新規作成ページへ
+  // 新規作成ページ
   await page.goto("https://chouseisan.com/schedule/new");
 
   const today = new Date();
