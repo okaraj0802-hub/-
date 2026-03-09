@@ -12,12 +12,18 @@ const fetch = require("node-fetch");
   });
   const page = await browser.newPage();
 
+  // ▼ ログインページへ
   await page.goto("https://chouseisan.com/login");
-  await page.type('input[name="email"]', email);
-  await page.type('input[name="password"]', password);
-  await page.click('button[type="submit"]');
+
+  // ▼ 最新のセレクタに変更
+  await page.type('#user_email', email);
+  await page.type('#user_password', password);
+
+  // ▼ ログインボタン
+  await page.click('input[type="submit"]');
   await page.waitForNavigation();
 
+  // ▼ 新規作成ページへ
   await page.goto("https://chouseisan.com/schedule/new");
 
   const today = new Date();
