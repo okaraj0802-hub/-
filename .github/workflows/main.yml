@@ -15,6 +15,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
+      - uses: actions/cache@v3
+        with:
+          path: ~/.cache/puppeteer
+          key: ${{ runner.os }}-puppeteer-${{ hashFiles('package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-puppeteer-
 
       - run: npm install
 
