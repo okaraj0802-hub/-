@@ -2,7 +2,7 @@
   "name": "chouseisan-auto",
   "version": "1.0.0",
   "dependencies": {
-    "puppeteer": "^21.0.0",
+    "puppeteer": "latest",
     "node-fetch": "^3.3.2"
   }
 }
